@@ -1,6 +1,19 @@
 {
 	"servicerestart": "service jdownloader restart",
-	"serviceget": "/usr/local/bin/jdownloader-settings",
-	"serviceset": "/usr/local/bin/jdownloader-settings"
+	"serviceget": "/usr/local/bin/pluginset",
+	"serviceset": "/usr/local/bin/pluginget",
+	"options": {
+		"email": {
+			"type": "string",
+			"name": "MyJDownloader Account Email",
+			"description": "The email for the MyJDownloader account",
+			"requirerestart": true
+		},
+		"password": {
+			"type": "string",
+			"name": "MyJDownloader Account Password",
+			"description": "Password for the MyJDownloader account",
+			"requirerestart": true
+		}
+	}
 }
-

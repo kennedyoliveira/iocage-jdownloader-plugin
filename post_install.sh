@@ -1,17 +1,15 @@
 #!/bin/sh
 
 # Create folder structure
-echo Creating the folder structure
+echo "Creating the folder structure"
 mkdir -p /usr/local/jdownloader
 
 # download the installer
-echo Downloading the installer
-curl http://installer.jdownloader.org/JDownloader.jar -o /usr/local/jdownloader/JDownloader.jar
-
-ls /usr/local/jdownloader
+echo "Downloading the installer"
+curl http://installer.jdownloader.org/JDownloader.jar --silent -o /usr/local/jdownloader/JDownloader.jar
 
 # Add a new user
-echo Adding new user
+echo "Adding new user"
 pw useradd jdownloader -u 333 -c "JDownloader daemon user" -d /nonexistent -s /sbin/nologin
 
 # update the folder permissions

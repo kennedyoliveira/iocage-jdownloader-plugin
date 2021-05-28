@@ -1,0 +1,23 @@
+#!/bin/sh
+
+settings_file="/usr/local/jdownloader/cfg/org.jdownloader.api.myjdownloader.MyJDownloaderSettings.json"
+
+case $1 in
+"email")
+      if [ -f "$settings_file" ]; then
+          cat settings_file | jq '.email'
+      else
+          echo "No settings file"
+      fi
+      ;;
+"password")
+      if [ -f "$settings_file" ]; then
+          cat settings_file | jq '.password'
+      else
+          echo "No settings file"
+      fi
+      ;;
+*)
+      echo "Unknown option $1"
+      exit 1
+      ;;
