@@ -1,0 +1,26 @@
+#!/bin/sh
+# 
+# PROVIDE: JDownloader
+# REQUIRE: LOGIN
+
+. /etc/rc.subr
+
+name=jdownloader
+rcvar=jdownloader_enable
+
+load_rc_config $name
+
+: ${jdownloader_user:=jdownloader}
+: ${jdownloader_enable:=no}
+
+start_cmd="${name}_start"
+
+pidfile="/usr/local/jdownloader/JDownloader.pid"
+procname="/usr/local/openjdk8-jre/bin/java"
+
+jdownloader_start() {
+	#su -m ${jdownloader_user} -c /usr/local/jdownloader/start.sh
+	su -m ${jdownloader_user} -c 'java -jar /usr/local/jdownloader/JDownloader.jar >& /dev/null &'
+}
+
+run_rc_command "$1"

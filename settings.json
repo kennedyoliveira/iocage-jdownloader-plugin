@@ -1,0 +1,6 @@
+{
+	"servicerestart": "service jdownloader restart",
+	"serviceget": "/usr/local/bin/jdownloader-settings",
+	"serviceset": "/usr/local/bin/jdownloader-settings"
+}
+
