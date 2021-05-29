@@ -17,7 +17,15 @@ case $1 in
           echo "No settings file"
       fi
       ;;
+"devicename")
+      if [ -f "$settings_file" ]; then
+          cat settings_file | jq '.devicename'
+      else
+          echo "No settings file"
+      fi
+      ;;
 *)
       echo "Unknown option $1"
       exit 1
       ;;
+esac
