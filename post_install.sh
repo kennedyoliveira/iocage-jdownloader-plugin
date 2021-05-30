@@ -26,6 +26,15 @@ sysrc jdownloader_user=jdownloader
 echo "Starting the service"
 service jdownloader start
 
-# wait a bit because the installer will download everything before starting it up
-# if we don't wait it will show that the service is NOT running
-sleep 10
+# wait for the service to have a chance to start
+sleep 3
+
+# get the pid
+# at start it will download all the files and update, and will not create a pid file
+# so we need to create one so the service can be seen as running
+jdownloader_pid=$(pgrep java)
+
+echo $jdownloader_pid > /usr/local/jdownloader/JDownloader.pid
+
+# fix the permission so the user can actually remove and replace with the new one once update finishes
+chown jdownloader:nogroup /usr/local/jdownloader/JDownloader.pid
