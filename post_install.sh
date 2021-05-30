@@ -25,3 +25,7 @@ sysrc jdownloader_user=jdownloader
 # start the service
 echo "Starting the service"
 service jdownloader start
+
+# wait a bit because the installer will download everything before starting it up
+# if we don't wait it will show that the service is NOT running
+sleep 10
