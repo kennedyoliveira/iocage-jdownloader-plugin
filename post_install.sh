@@ -38,3 +38,6 @@ echo $jdownloader_pid > /usr/local/jdownloader/JDownloader.pid
 
 # fix the permission so the user can actually remove and replace with the new one once update finishes
 chown jdownloader:nogroup /usr/local/jdownloader/JDownloader.pid
+
+echo "JDownloader installed succesfully, wait for it to download all it's update, it can take a while depending on your internet connection speed"
+echo "Check the post note installation for instruction on how to setup your account"
